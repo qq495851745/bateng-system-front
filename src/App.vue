@@ -5,6 +5,7 @@
     <hello-world v-for="(item,index) of list"
                  :item="item"
                  :index="index"
+                 :key="index"
                  @del="del"></hello-world>
   </div>
 </template>
@@ -14,20 +15,19 @@
   export default {
     name: 'App',
     components: {HelloWorld},
-    data() {
+    data () {
       return {
         inputValue: 'test',
         list: []
       }
     },
     methods: {
-      handleClick() {
-        this.list.push(this.inputValue);
+      handleClick () {
+        this.list.push(this.inputValue)
         this.inputValue = ''
-
       },
-      del(index){
-        this.list = this.list.slice(0,index).concat(this.list.slice(index+1))
+      del (index) {
+        this.list = this.list.slice(0, index).concat(this.list.slice(index + 1))
       }
     },
     comments: {
